@@ -1,12 +1,23 @@
-// As an air traffic controller 
-// So I can get passengers to a destination 
-// I want to instruct a plane to land at an airport
-
 const { expect } = require('@jest/globals');
 const Airport = require('../src/airport');
 const airport = require('../src/airport')
+
+// Airports
 const testAirport = new Airport
 const smallAirport = new Airport(1, 1)
+const stormyAirport = new Airport()
+
+// Weather Mocks
+const badWeather = {
+	report: 'stormy',
+}
+const clearWeather = {
+	report: 'clear',
+}
+
+// **********
+// TESTS
+// **********
 
 // .INITIALIZE
 test('airport capacity can be overriden', () => {
@@ -28,4 +39,8 @@ test('airports can prevent landing when capacity is full', () => {
 // .TAKEOFF(PLANE)
 test('airports can instruct planes to take off', () => {
 	expect(testAirport.takeOff()).toBe('plane has taken off')
+});
+
+test('airports refuse take off if weather is stormy', () => {
+	expect()
 });
