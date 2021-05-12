@@ -27,6 +27,11 @@ test('airport capacity can be overriden', () => {
 	expect(newAirport.capacity).toBe(6)
 });
 
+test('airport can be made with alternative cap but default num', () => {
+	const isoAirport = new Airport(3)
+	expect(isoAirport.capacity).toBe(3)
+})
+
 // .LAND(PLANE)
 test('airports can instruct planes to land', () => {
 	expect(testAirport.landPlane()).toBe('plane has landed');
