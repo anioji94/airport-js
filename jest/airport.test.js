@@ -43,11 +43,18 @@ test('airports can prevent landing when capacity is full', () => {
 	expect(smallAirport.landPlane()).toBe('request denied, airport full')	
 })
 
+// test('airports refuse landing if weather is stormy', () => {
+// 	expect(stormyAirport.landPlane()).toThrow('request denied, stormy weather')
+// });
+
+
 // .TAKEOFF(PLANE)
 test('airports can instruct planes to take off', () => {
 	expect(testAirport.takeOff()).toBe('plane has taken off')
 });
 
 test('airports refuse take off if weather is stormy', () => {
-	expect(stormyAirport.takeOff()).toBe('request denied, stormy weather')
+	expect(() => {
+		stormyAirport.takeOff();
+	}).toThrow('request denied, stormy weather');
 });

@@ -7,6 +7,7 @@ class Airport {
 		this.hangar = num
 		this.weather = weather.report
 	}
+
 	landPlane(plane = "plane") {
 		if (this.hangar < this.capacity) {
 			this.hangar += 1
@@ -17,7 +18,11 @@ class Airport {
 	}
 
 	takeOff(plane = "plane") {
+		if(this.weather == 'stormy') {
+			throw 'request denied, stormy weather'; 
+		} else {
 		return `${plane} has taken off`
+		}
 	}
 }
 
