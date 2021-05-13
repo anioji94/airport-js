@@ -2,11 +2,6 @@ const { expect } = require('@jest/globals');
 const Airport = require('../src/airport');
 const airport = require('../src/airport')
 
-// Airports
-const testAirport = new Airport
-const smallAirport = new Airport(1, 1)
-const stormyAirport = new Airport()
-
 // Weather Mocks
 const badWeather = {
 	report: 'stormy',
@@ -14,6 +9,13 @@ const badWeather = {
 const clearWeather = {
 	report: 'clear',
 }
+
+// Airports
+const testAirport = new Airport(5, 0, clearWeather)
+const smallAirport = new Airport(1, 1, clearWeather)
+const stormyAirport = new Airport(5, 0, badWeather)
+
+
 
 // **********
 // TESTS
@@ -47,5 +49,5 @@ test('airports can instruct planes to take off', () => {
 });
 
 test('airports refuse take off if weather is stormy', () => {
-	expect()
+	expect(stormyAirport.takeOff()).toBe('request denied, stormy weather')
 });

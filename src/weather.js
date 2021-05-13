@@ -1,6 +1,8 @@
 class Weather {
 	report() {
-		return 'weather'
+		const weather = ['stormy', 'clear', 'overcast', 'rainy']
+		const randIndex = Math.floor(Math.random() * weather.length)
+		return weather[randIndex]
 	}
 }
 
